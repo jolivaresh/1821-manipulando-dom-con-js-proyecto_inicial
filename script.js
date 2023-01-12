@@ -4,15 +4,15 @@ const createTask = (evento) => {
     evento.preventDefault();
     const input = document.querySelector("[data-form-input]");
     const value = input.value;
-    const list = document.querySelector("[data-list]")
-    const task = document.createElement("li");
+    const list = document.querySelector("[data-list]") // crea un elemento padre en html
+    const task = document.createElement("li"); // crea un elemento html
     task.classList.add("card"); // agrega una clase a un elemento HTML
     input.value = "";
-    const content = `<div>
+    const content = `<div>  
          <i class="far fa-check-square icon"></i>
          <span class="task">${value}</span>
         </div>
-        <i class="fas fa-trash-alt trashIcon icon"></i>`;
+        <i class="fas fa-trash-alt trashIcon icon"></i>`; //contiene el codigo que se debe agragar
         task.innerHTML = content; // Agrega contenido al HTML
 
         list.appendChild(task) // agrega un elemento hijo al HTML
