@@ -1,4 +1,6 @@
-( () => {
+import checkComplete from "./componets/checkComplete.js";
+import deleteIcon from "./componets/deleteIcon.js";
+
 const btn = document.querySelector("[data-form-btn]");
 
 const createTask = (evento) => {
@@ -16,32 +18,23 @@ const createTask = (evento) => {
     titletask.innerText = value
     taskContent.appendChild(checkComplete());
     taskContent.appendChild(titletask);
-    const content = `
-        <i class="fas fa-trash-alt trashIcon icon"></i>`; //contiene el codigo que se debe agragar
+    
+
+ //contiene el codigo que se debe agragar
         //  ${value} crear un template de un párrafo que reciba el contenido HTML y JavaScript
         // task.innerHTML = content; // Agrega contenido al HTML
-        task.appendChild(taskContent);
-        list.appendChild(task); // agrega un elemento hijo al HTML
+    task.appendChild(taskContent);
+    task.appendChild(deleteIcon());
+    list.appendChild(task); // agrega un elemento hijo al HTML
 };
 
 
 // Arrow functions o funciones anonimas
 btn.addEventListener("click", createTask);
 
-const checkComplete = () => {
-    const i = document.createElement("i");
-    i.classList.add("far","fa-check-square","icon");
-    i.addEventListener("click", completeTask);
-    return i
-}
-// Inmediately invokerd function expression IIFE 
-const completeTask = (event) => {
-    const element = event.target
-    element.classList.toggle("fas");
-    element.classList.toggle("completeIcon");
-    element.classList.toggle("far");
 
-};
+
+
 
 /* Utilizar el método 
 addEventListener para escuchar eventos de un elemento
@@ -63,4 +56,3 @@ evento.preventDefault Prevenir el comportamiento patrón del formulario
     const input = document.querySelector("[data-form-input]");
     console.log(input.value);
 }) */
-})();
