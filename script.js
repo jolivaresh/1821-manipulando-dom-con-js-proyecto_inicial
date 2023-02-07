@@ -1,37 +1,12 @@
-import checkComplete from "./componets/checkComplete.js";
-import deleteIcon from "./componets/deleteIcon.js";
+import { addTask } from "./componets/addTask.js";
+import { displayTasks } from "./componets/readTasks.js";
 
 const btn = document.querySelector("[data-form-btn]");
 
-const createTask = (evento) => {
-    evento.preventDefault();
-    const input = document.querySelector("[data-form-input]");
-    const value = input.value;
-    const list = document.querySelector("[data-list]") // crea un elemento padre en html
-    const task = document.createElement("li"); // crea un elemento html
-    task.classList.add("card"); // agrega una clase a un elemento HTML
-    input.value = "";
-
-    const taskContent = document.createElement("div");
-    const titletask = document.createElement("samp");
-    titletask.classList.add("task");
-    titletask.innerText = value
-    taskContent.appendChild(checkComplete());
-    taskContent.appendChild(titletask);
-    
-
- //contiene el codigo que se debe agragar
-        //  ${value} crear un template de un párrafo que reciba el contenido HTML y JavaScript
-        // task.innerHTML = content; // Agrega contenido al HTML
-    task.appendChild(taskContent);
-    task.appendChild(deleteIcon());
-    list.appendChild(task); // agrega un elemento hijo al HTML
-};
-
-
 // Arrow functions o funciones anonimas
-btn.addEventListener("click", createTask);
+btn.addEventListener("click", addTask);
 
+displayTasks();
 
 
 
